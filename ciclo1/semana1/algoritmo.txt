@@ -1,0 +1,19 @@
+un algoritmo se basa en instrucciones especificas para ejecutar un objetivo en especifico
+ej:
+  -algoritmo para levantarse
+  -algoritmo para cepillarse
+  -algoritmo para ir a jugar futbol
+  
+Un algoritmo puede ser conciso o extremadamente preciso en sus instrucciones tomando cada
+detalle posible lo que ocaciona que sean o muy cortos o muy largos, y es clave en el ambito 
+de la programacion para hacer cualquier proyecto corto mediano o largo.
+
+Especificamente con la programacion hay varios aspectos a tener en cuenta, por lo que los 
+algoritmos pueden ser en diagramas de flujo, en idioma normal o en pseudocodigo lo que hace
+que los algoritmos tengan varios aspectos distintos teniendo en cuenta las diferentes formas
+de pensar que tiene una persona en lo comun.
+
+Un diagrama de flujo esta compuesto por diferentes figuras que representan cierta instruccion a realizar por parte del proyecto, estas instruccionesson:
+
+  -
+  

@@ -1,0 +1,118 @@
+﻿Preparar una taza de café en cafetera sin azucar
+
+Inicio
+
+Poner a hervir agua 
+
+Echar el café en la cafetera
+
+Echar agua hirviendo a la cafetera
+
+Colocar una jarra o vaso en la cafetera
+
+Dar click al boton de iniciar
+
+Esperar a que la taza se haya llenado
+
+Disfrutar
+
+Fin
+
+Ir al cine
+
+Inicio
+
+Buscar uno o mas personas con las cuales ir al cine
+
+Elegir la pelicula a ver
+
+Ir al centro comercial donde este una sala de cine
+
+Hacer fila para la pelicula
+
+Conseguir los boletos para la funcion mas cercana
+
+Conseguir comida para ver la peli
+
+Entrar a la sala de cina
+
+Fin
+
+Pedir un domicilio
+
+Inicio
+
+Ir a una pagina web o aplicación en la cual se pida el domicilio o llamar directamente al restaurante que se busca ordenar
+
+Elegir previamente que comida quieres comer
+
+Contactar con el restaurante
+
+Pedir la comida especifica que quieres
+
+Dar tu direccion
+
+Esperar
+
+Disfrutar
+
+Fin
+
+Hacer una llamada telefonica
+
+Inicio
+
+Pensar en la persona o empresa que quieres llamar
+
+Buscar su numero de telefono
+
+Sentarse o pararse pero ponerse comodo
+
+Agarrar tu celular o el telefono fijo de tu hogar
+
+Digitar su numero
+
+Esperar
+
+Hacer la llamada
+
+Fin
+
+Algoritmo 3
+
+Inicio
+
+a = 4
+
+b = 7
+
+c = 12
+
+d = 9
+
+retultado = 0
+
+suma = 0
+
+a = b + 2
+
+d = c - 3
+
+suma = a + b + c + d
+
+promedio = (a + b + c + d) / 4
+
+imprima a, b , d, suma, promedio
+
+a = 9
+
+b = 7
+
+d = 9
+
+suma = 37
+
+promedio = 9.25
+
+Fin
+
