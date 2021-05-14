@@ -6,17 +6,7 @@ b = int(input('Ingrese el valor de b: '))
 c = int(input('Ingrese el valor de c: '))
 
 # discriminante d
-d = b * 2 - 4 * a * c 
-
-# Verificamos que ningun numero sea 0 y si es verdad se dice que es una ecuacion incompleta
-if a == 0:
-    print('Es una ecuacion incompleta')
-elif b == 0:
-    print('Es una ecuacion incompleta')
-elif c == 0:
-    print('Es una ecuacion incompleta')
-else:
-    print('Es una ecuacion completa')
+d = b * 2 - 4 * a * c
 
 '''
 si d es igual a 0 no se haran raices cuadradas
@@ -33,7 +23,7 @@ if d == 0:
     ecuacion2 = a * x2 ** 2 + b * x2 + c
 
     print('Debido a que la discriminante es 0 se omitira la cuadratica')
-    
+
     #se dicen explicitamente los valores d y la solucion a las dos ecuaciones
     print(f'El valor de d es: {d}\ny la solucion numero 1 de la ecuacion es {ecuacion1}\ny la solucion numero 2 de la ecuacion es {ecuacion2}')
 
@@ -73,11 +63,11 @@ elif d > 0:
 
     # Se hace la ecuacion teniendo en cuenta los valores de x1 y x2
     ecuacion1 = a * x1 ** 2 + b * x1 + c
-    ecuacion2 = a * x2 ** 2 + b * x2 + c 
+    ecuacion2 = a * x2 ** 2 + b * x2 + c
     print('la discriminante es mayor que 0')
     # Se muestra explicitamente el valor de d y el valor de la ecuacion con x1 y con x2
     print(f'El valor de d es: {d} y la solucion numero 1 de la ecuacion es {ecuacion1} y la solucion numero 2 de la ecuacion es {ecuacion2}')
-    
+
     '''
     En este punto se empezara a hacer una condicional donde se tendra en cuenta
     la ecuacion 1 y la ecuacion 2, en la cual si ambos valores son negativos
@@ -97,14 +87,14 @@ elif d > 0:
         ecuaciondef = (ecuacion1 + ecuacion2) * (ecuacion2 - ecuacion1)
 
     '''
-    Independientemente de la condicion verdadera se mostrara el valor de 
+    Independientemente de la condicion verdadera se mostrara el valor de
     la ecuacion definitiva
     '''
     print(f'Por lo tanto la solucion definitiva es {ecuaciondef}')
 
 # Condicional si la discriminante es negativa
 else:
-    
+
     # debido a que a los numeros negativos no se les saca raiz cuadrada no sera una solucion real
     solucionReal1 = -b / (2 * a)
     solucionReal2 = -b / (2 * a)
@@ -130,6 +120,3 @@ else:
     else:
         ecuaciondef = (solucionImaginaria1 + solucionImaginaria2) * (solucionImaginaria1 - solucionImaginaria2)
     print(f'El resultado de la ecuacion definitiva es {ecuaciondef}')
-
-
-
