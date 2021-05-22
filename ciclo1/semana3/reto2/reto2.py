@@ -3,17 +3,15 @@ from sys import exit
 '''
 Programa que pide nombre y apellido edad,
 puntaje y numero de salarios minimos y te da
-un descuento en base a esos datos 
+un descuento en base a esos datos
 '''
 
 # Piden datos personales de los candidatos
-apellidos = input('Ingrese los apellidos del candidato: ')
-nombres = input('Ingrese el nombre o los nombres del candidato: ')
 edad = int(input('Ingrese la edad del candidato: '))
-sueldo = float(input('Ingrese el numero de salarios minimos que tiene de ingreso familiar el candidato'))
-
 # Piden un examen de aptitud academica y se tendra que escribir la nota final que obtuvo
 notaExamen = int(input('Ingresa la nota del examen(del 0 al 100): '))
+sueldo = float(input('Ingrese el numero de salarios minimos que tiene de ingreso familiar el candidato'))
+
 
 # Calcula el porcentaje del descuento de la matricula en base a esos datos
 # Primero se calcula un descuento en base a la edad
@@ -55,8 +53,6 @@ else:
     sys.exit()
 
 # Se muestra en pantalla los diferentes descuentos y al final se suman
-print(f'Apellidos del candidato: {apellidos}')
-print(f'Nombres del candidato: {nombres}')
 print(f'Edad del candidato: {edad} años')
 print(f'Porcentaje de descuento por edad del candidato: {dctoEdad}%')
 print(f'Porcentaje de descuento por ingreso familiar del candidato: {dctoIngresos}%')
