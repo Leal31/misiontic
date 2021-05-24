@@ -6,7 +6,6 @@ puntaje y numero de salarios minimos y te da
 un descuento en base a esos datos
 '''
 
-# Piden datos personales de los candidatos
 edad = int(input('Ingrese la edad del candidato: '))
 # Piden un examen de aptitud academica y se tendra que escribir la nota final que obtuvo
 notaExamen = int(input('Ingresa la nota del examen(del 0 al 100): '))
