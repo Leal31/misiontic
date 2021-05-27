@@ -61,8 +61,16 @@ def mayusculaminuscula(texto):
     texto = texto.upper()
     return texto
 
+def fib(numero):
+    if numero == 0:
+        return 0
+    elif numero == 1:
+        return 1
+    else:
+        return fib(numero - 1) + fib(numero - 2) 
+
 while opcion >= 1 and opcion <= 8:
-    print('1. Numero mayor que 0')
+    print('\n1. Numero mayor que 0')
     print('2. suma de numeros primos')
     print('3. Retorno de booleano')
     print('4. indicar cuantos numeros primos y la suma')
@@ -92,7 +100,12 @@ while opcion >= 1 and opcion <= 8:
             texto = ''
             print('Tu nombre transformado en mayusculas es', mayusculaminuscula(texto))
         elif opcion == 7:
-            
+            numero = int(input('Ingresa un numero: '))
+            for i in range(0, numero + 1, 1):
+                if i == 0:
+                    continue
+                fibonacci = fib(i)
+                print(fibonacci, end=' ')
         elif opcion == 8:
             sys.exit()
 
