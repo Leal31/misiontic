@@ -23,12 +23,12 @@ while True:
         temperaturaMinimaError = temperaturaMinimaError + 1
     elif temperaturaMaxima > 35:
         temperaturaMaximaError = temperaturaMaximaError + 1
-        
+
     else:
         temperaturaMinimaTotal = temperaturaMinimaTotal + temperaturaMinima
         temperaturaMaximaTotal = temperaturaMaximaTotal + temperaturaMaxima
     diaRegistrado = diaRegistrado + 1
-    
+
 
 diasErrores = temperaturaMinimaError + temperaturaMaximaError + temperaturaError
 diaSinError = diaRegistrado - diasErrores
@@ -45,4 +45,3 @@ print(f'Las veces que se reportaron errores con ambas temperaturas fueron: {temp
 print(f'La temperatura media maxima que se obtuvo es de {promedioTemperaturaMaxima} grados')
 print(f'La temperatura media minima que se obtuvo es de {promedioTemperaturaMinima} grados')
 print(f'El porcentaje de veces que se obtuvo errores respecto al total de dias fue del {porcentajeErrores}%')
-
