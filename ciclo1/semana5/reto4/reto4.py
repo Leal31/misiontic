@@ -3,27 +3,29 @@ def sueldoBruto(valorHora, horaTrabajada):
 
     return valorHora * horaTrabajada
 # Se declara la funcion de descuentos con un parametro del sueldo bruto 
-def descuentos(sueldoBruto):
+def descuentosTotal(sueldoBruto):
 
     dctoParaFiscal = sueldoBruto * 0.09
     
-    dctoSalud = sueldoBruto * 0.04
-
-    dctoPension = sueldoBruto * 0.04
+    saludPension = sueldoBruto * 0.08
+    
     # Se retorna la suma de todos los descuentos
-    return dctoParaFiscal + dctoPension + dctoSalud
+    return dctoParaFiscal, saludPension
+
+# Se declara la funcion de descuentos con un parametro del sueldo bruto
+    
 # Se declara la funcion de sueldo que retornara el sueldo neto a pagar
 def sueldo(sueldoBruto):
 
-    return sueldoBruto - descuentos(sueldoBruto)
+    return sueldoBruto - sum(descuentosTotal(sueldoBruto))
 # Se declara la funcion de proviciones que retornara la cantidad extra a pagar
 def proviciones(sueldoBruto):
     prima = sueldoBruto * 8.33 / 100
     cesantias = sueldoBruto * 8.33 / 100
-    interesCesantias = sueldoBruto * 1 / 100
+    interesCesantias = cesantias * 1 / 100
     vacaciones = sueldoBruto * 4.17 / 100
 
-    return prima + cesantias + interesCesantias + vacaciones
+    return prima, cesantias, interesCesantias, vacaciones
 
     
 # Entradas
@@ -39,15 +41,19 @@ if horas > 40:
     sueldoTotal = sueldoTotal + totalExtra
 else:
     sueldoTotal = sueldoBruto(horas, valorHoras)
-    
-dcto = descuentos(sueldoTotal)
+
+paraFiscal, saludPension = descuentosTotal(sueldoTotal) 
 
 sueldoNeto = sueldo(sueldoTotal)
     
-aumentos  = proviciones(sueldoTotal)
+prima, cesantia, interes, vacaciones  = proviciones(sueldoTotal)
 
 # Salidas
-print(f'El sueldo bruto del docente {nombre} es: {sueldoTotal} mensuales')
-print(f'Los descuentos de parafiscales, salud y pension son:  {dcto} mensuales')
-print(f'El sueldo neto del docente {nombre} es {sueldoNeto}: mensuales')
-print(f'Las proviciones por prima, cesantias, interes de cesantias y vacaciones son: {aumentos}')
+print(f'El sueldo bruto del docente {nombre} es: {sueldoTotal} semanales')
+print(f'Los descuentos de parafiscales son: {paraFiscal}')
+print(f'Los descuentos de salud y pension son: {saludPension}')
+print(f'El sueldo neto del docente {nombre} es {sueldoNeto}: semanales')
+print(f'Las proviciones por prima son: {prima}')
+print(f'Las proviciones por cesantias son: {cesantia}')
+print(f'Los intereses de cesantias son: {interes}')
+print(f'Las proviciones por vacaciones son: {vacaciones}')
