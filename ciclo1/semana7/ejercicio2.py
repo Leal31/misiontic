@@ -7,7 +7,7 @@ def abrirArchivo(archivoUso, metodo):
         nuevo = open(archivoUso)
 
 def ponerNombre(nombre, archivoUsado):
-   
+
     archivoUsado.write(f'{nombre}\n')
 
 archivo = input('Ingresa el archivo a usar: ')
