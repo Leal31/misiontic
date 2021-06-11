@@ -1,41 +1,38 @@
-def leerArchivo(nombreArchivo):
-    try:
-        archivo = open(nombreArchivo)
-    except:
-        print('No se puede abrir el archivo')
+def abrirArchivo(archivoUso, metodo):
+    global nuevo
+    if metodo == 'w':
 
-def ingresarNombre(nombreArchivo):
-    leerArchivo()
-    nombre = input('Ingrese un nombre: ')
+        nuevo = open(archivoUso, 'w')
+    elif metodo == 'r':
+        nuevo = open(archivoUso)
 
+def ponerNombre(nombre, archivoUsado):
+   
+    archivoUsado.write(f'{nombre}\n')
 
+archivo = input('Ingresa el archivo a usar: ')
 
+abrirArchivo(archivo, 'w')
 
-
-archivo = input('Ingrese el nombre del archivo a trabajar: ')
-
-
-lectura = open(archivo, 'w')
 contador = 0
+
 while True:
-    nombre = input('Ingrese su nombre')
-
-    if nombre == '0':
+    ponNombre = input('Ingresa cualquier nombre: ')
+    if ponNombre == '0':
         break
-    archivo.write(f'{nombre}\n')
-    contador = contador + 1
+    ponerNombre(ponNombre, nuevo)
+    contador += 1
 
-print(f'El archivo tiene {contador} lineas de texto')
+print(f'La cantidad de lineas que hay en el archivo son {contador}')
 
-archivo = open('cuento.txt')
-caracteres = archivo.read()
+abrirArchivo(archivo, 'r')
+caracteres = nuevo.read()
 
-print(f'El archivo tiene {len(caracteres)} caracteres')
+print(f'La cantidad de caracteres que tiene el archivo son {len(caracteres)}')
 
-archivo = open('cuento.txt')
-contador1 = 0
-for l in archivo:
-    if l.find('E'):
-        contador1 = contador1 + 1
-
-print(f'Las veces que se encuentra la letra E es {contador1}')
+abrirArchivo(archivo, 'r')
+contador = 0
+for l in nuevo:
+    if l.count('E'):
+        contador += 1
+print(f'Las veces que se encuentra la letra E es {contador}')
