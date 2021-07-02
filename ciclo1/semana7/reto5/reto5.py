@@ -11,13 +11,6 @@ def crearArchivo():
     y se guardaran dentro todos los elementos para poder manipularlos
     con mas facilidad
     '''
-    global nombreLista
-    global cedulaLista
-    global celularLista
-    nombreLista = []
-    cedulaLista = []
-    celularLista = []
-
     
     archivo = open(nombreArchivo, 'w')
     
@@ -151,10 +144,17 @@ def mostrarArchivo():
         print(celularLista[pos])
 
 # Programa principal
+global nombreLista
+global cedulaLista
+global celularLista
+nombreLista = []
+cedulaLista = []
+celularLista = []
+
 
 # Se pide el archivo en el que se trabajara
 global nombreArchivo
-nombreArchivo = input('Ingrese el archivo a trabajar: ')
+nombreArchivo = 'agenda.txt'
 # Bucle del menu con todas las funciones a usar
 while True:
     print('menu')
