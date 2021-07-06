@@ -18,7 +18,7 @@ public class EjercicioDos {
         // TODO code application logic her
         Scanner lectura = new Scanner(System.in);
         
-      
+        
         String Cedula, NombreDocente, Profesion;
         String Codigo, NombreEstudiante, Carrera;
         
