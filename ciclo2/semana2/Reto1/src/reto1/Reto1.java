@@ -16,7 +16,7 @@ public class Reto1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        // Se crea la variable de lectura
+        // Se crea la variable de lectura por leer datos
         Scanner leer = new Scanner(System.in);
         // se definen distintas variables que se les pediran al usuario en todo caso
         int opcion = 1;
