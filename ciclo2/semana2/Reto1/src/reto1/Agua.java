@@ -10,24 +10,24 @@ package reto1;
  * @author master
  */
 public class Agua {
-    private float metroCubico;
-    private float precioConsumo = 9256;
+    private int metroCubico;
+    private int precioConsumo = 9256;
     private int estrato;
-    private double totalPago;
+    private double totalPago, descuento = 0;
 
-    public float getMetroCubico() {
+    public int getMetroCubico() {
         return metroCubico;
     }
 
-    public void setMetroCubico(float metroCubico) {
+    public void setMetroCubico(int metroCubico) {
         this.metroCubico = metroCubico;
     }
 
-    public float getPrecioConsumo() {
+    public int getPrecioConsumo() {
         return precioConsumo;
     }
 
-    public void setPrecioConsumo(float precioConsumo) {
+    public void setPrecioConsumo(int precioConsumo) {
         this.precioConsumo = precioConsumo;
     }
 
@@ -47,6 +47,12 @@ public class Agua {
         this.totalPago = totalPago;
     }
     
+    public double totalPagar() {
+        
+        
+        return precioConsumo * metroCubico;
+
+    }
     public double TotalPagoAgua() {
         if (estrato >= 1 && estrato <= 2)
             totalPago = ((precioConsumo * metroCubico) - ((precioConsumo * metroCubico) * 0.5));
@@ -56,9 +62,34 @@ public class Agua {
             totalPago = (precioConsumo * metroCubico) + ((precioConsumo * metroCubico) * 0.25);
         else
             System.out.println("No es un estrato valido");
-        totalPago = totalPago + (totalPago * 0.01);
+        totalPago = totalPago + this.impuesto();
         return totalPago;
     }
+    
+    public double impuesto() {
+        
+        return this.totalPagar() * 0.01;
+    }
 
+    public double getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
+    }
+    
+    public double sacarDescuento() {
+        if (estrato >= 1 && estrato <= 2) 
+            descuento = -(precioConsumo * metroCubico) * 0.5;
+        else if (estrato >= 3 && estrato <= 4)
+            descuento = -(precioConsumo * metroCubico) * 0.1;
+        else if (estrato >= 5 && estrato <= 6)
+            descuento = (precioConsumo * metroCubico) * 0.25;
+        else
+            System.out.println("No es un estrato valido");
+        
+        return descuento;
+    }
    
 }

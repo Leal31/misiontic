@@ -10,24 +10,25 @@ package reto1;
  * @author master
  */
 public class Luz {
-    private float KiloWats;
-    private float precioConsumo = 6200;
+    private int KiloWats;
+    private int precioConsumo = 6200;
     private int estrato;
     private double totalPago;
+    private double descuento;
 
-    public float getKiloWats() {
+    public int getKiloWats() {
         return KiloWats;
     }
 
-    public void setKiloWats(float KiloWats) {
+    public void setKiloWats(int KiloWats) {
         this.KiloWats = KiloWats;
     }
 
-    public float getPrecioConsumo() {
+    public int getPrecioConsumo() {
         return precioConsumo;
     }
 
-    public void setPrecioConsumo(float precioConsumo) {
+    public void setPrecioConsumo(int precioConsumo) {
         this.precioConsumo = precioConsumo;
     }
 
@@ -57,7 +58,31 @@ public class Luz {
             totalPago = (precioConsumo * KiloWats) + ((precioConsumo * KiloWats) * 0.25);
         else
             System.out.println("No es un estrato valido");
-        totalPago = totalPago + (totalPago * 0.01);
+        totalPago = totalPago + this.impuesto();
         return totalPago;
+    }
+    
+    public double sacarDescuento() {
+        if (estrato >= 1 && estrato <= 2) 
+            descuento = -(precioConsumo * KiloWats) * 0.5;
+        else if (estrato >= 3 && estrato <= 4)
+            descuento = -(precioConsumo * KiloWats) * 0.1;
+        else if (estrato >= 5 && estrato <= 6)
+            descuento = (precioConsumo * KiloWats) * 0.25;
+        else
+            System.out.println("No es un estrato valido");
+        
+        return descuento;
+    }
+    
+     public double totalPagar() {
+        
+        
+        return precioConsumo * KiloWats;
+    }
+     
+    public double impuesto() {
+        
+        return this.totalPagar() * 0.01;
     }
 }
