@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package reto1;
-import java.util.Scanner;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  *
  * @author Emanuel Leal Arce
@@ -14,10 +18,10 @@ public class Reto1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
         // Se crea la variable de lectura por leer datos
-        Scanner leer = new Scanner(System.in);
+        BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
         // se definen distintas variables que se les pediran al usuario en todo caso
         int opcion = 1;
         int estrato = 0;
@@ -32,7 +36,7 @@ public class Reto1 {
             System.out.println("3. Gas Natural");
             System.out.println("4. Salir");
             System.out.println("Opcion:"); // pedimos una de las opciones planteadas
-            opcion = leer.nextInt(); // leemos por teclado 
+            opcion = parseInt(leer.readLine()); // leemos por teclado 
             
             // switch para tratar todos los casos
             switch (opcion) {
