@@ -5,9 +5,7 @@
  */
 package reto1;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  *
@@ -18,10 +16,10 @@ public class Reto1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         // TODO code application logic here
         // Se crea la variable de lectura por leer datos
-        BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
+        Scanner leer = new Scanner(System.in);
         // se definen distintas variables que se les pediran al usuario en todo caso
         int opcion = 1;
         int estrato = 0;
@@ -36,7 +34,7 @@ public class Reto1 {
             System.out.println("3. Gas Natural");
             System.out.println("4. Salir");
             System.out.println("Opcion:"); // pedimos una de las opciones planteadas
-            opcion = parseInt(leer.readLine()); // leemos por teclado 
+            opcion = leer.nextInt(); // leemos por teclado 
             
             // switch para tratar todos los casos
             switch (opcion) {
