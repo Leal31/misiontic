@@ -55,20 +55,10 @@ public class EstudianteBo {
         estudiantes.remove(estudiante);
     }
     
-    public void obtenerEstudiantes(EstudianteVo estudiante) {
+    public List<EstudianteVo> obtenerEstudiantes() {
        
         
-        for (int i = 0;i < estudiantes.size(); i++) {
-            System.out.println("Nombres: " + estudiante.getNombres());
-            System.out.println("Apellidos: " + estudiante.getApellidos());
-            System.out.println("Fecha nacimiento: " + estudiante.getFechaNac());
-            System.out.println("Correo institucional: " + estudiante.getCorreoInst());
-            System.out.println("Correo personal: " + estudiante.getCorreoPersonal());
-            System.out.println("Número de teléfono celular: " + estudiante.getCelular());
-            System.out.println("Número de teléfono fijo: " + estudiante.getFijo());
-            System.out.println("Programa academico: " + estudiante.getProgramaAcademico());
-            
-            
+        return estudiantes;
         }
     }
-}
+

@@ -19,15 +19,17 @@ public class Reto2 {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
+        try {
         BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
         int opcion = 1;
 
         EstudianteBo estudiante = new EstudianteBo();
         
-        while (opcion >= 1  && opcion <= 4) {
+        while (opcion >= 1  && opcion <= 6) {
             System.out.println("INSTITUTO LA FLORESTA");
             System.out.println("Seleccione tarea a realizar: ");
             System.out.println("1. Ingresar estudiante");
@@ -84,10 +86,42 @@ public class Reto2 {
                     }
                     break;
                 case 3:
+                    EstudianteVo actualizar = new EstudianteVo();
+                    System.out.println("Mofidicar estudiante");
+                    System.out.println("Ingresar correo institucional: ");
+                    CorreoInst = leer.readLine();
+                    actualizar = estudiante.consultarEstudiante(CorreoInst);
+                    System.out.println("Ingresar correo personal: ");
+                    actualizar.setCorreoPersonal(leer.readLine());
+                    System.out.println("Ingresar número de celular: ");
+                    actualizar.setCelular(Long.parseLong(leer.readLine()));
+                    System.out.println("Ingresar número fijo: ");
+                    actualizar.setFijo(Long.parseLong(leer.readLine()));
+                    System.out.println("Ingresar programa: ");
+                    actualizar.setProgramaAcademico(leer.readLine());
+                    estudiante.actualizarEstudiante(actualizar);
+                    System.out.println("Se modificó el estudiante");
                     break;
                 case 4:
+                    System.out.println("Eliminar estudiante");
+                    System.out.println("Ingrese el correo institucional: ");
+                    CorreoInst = leer.readLine();
+                    EstudianteVo estudianteBorrar = estudiante.consultarEstudiante(CorreoInst);
+                    estudiante.eliminarEstudiante(estudianteBorrar);
+                    System.out.println("Se eliminó el estudiante");
                     break;
                 case 5:
+                    System.out.println("El directorio de los estudiantes");
+                    for (EstudianteVo estudiantes : estudiante.obtenerEstudiantes()) {
+                        System.out.println("Nombres: " + estudiantes.getNombres());
+                        System.out.println("Apellidos: " + estudiantes.getApellidos());
+                        System.out.println("Fecha nacimiento: " + estudiantes.getFechaNac());
+                        System.out.println("Correo institucional: " + estudiantes.getCorreoInst());
+                        System.out.println("Correo personal: " + estudiantes.getCorreoPersonal());
+                        System.out.println("Número de teléfono celular: " + estudiantes.getCelular());
+                        System.out.println("Número de teléfono fijo: " + estudiantes.getFijo());
+                        System.out.println("Programa academico: " + estudiantes.getProgramaAcademico());
+                    }
                     break;
                 case 6:
                     System.out.println("Hasta pronto");
@@ -96,6 +130,12 @@ public class Reto2 {
             }
             
             
+        }
+        } catch (Exception e) {
+            System.out.println("La excepcion es: " + e);
+            
+        } finally {
+            System.out.println("Programa finalizado");
         }
     }
     
