@@ -6,9 +6,12 @@ public class EstudianteVo {
     private String nombres;
     private String apellidos;
     private String nacimiento;
-    private String programa;
-    private long celular;
     private String CorreoInst;
+    private String correoPersonal;
+    private long celular;
+    private long fijo;
+    private String programa;
+    
     
     // Constructor vacio
     public EstudianteVo() {
@@ -16,16 +19,16 @@ public class EstudianteVo {
     }
     
     // Metodo constructor
-    public EstudianteVo(String nombres, String apellidos, String nacimiento, String programa, long celular, String CorreoInst) {
+    public EstudianteVo(String nombres, String apellidos, String nacimiento, String CorreoInst, String correoPersonal, long celular, long fijo, String programa) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.nacimiento = nacimiento;
-        this.programa = programa;
-        this.celular = celular;
         this.CorreoInst = CorreoInst;
+        this.correoPersonal = correoPersonal;
+        this.celular = celular;
+        this.fijo = fijo;
+        this.programa = programa;
     }
-    
-    // Metodos get y set
 
     public String getNombres() {
         return nombres;
@@ -51,12 +54,20 @@ public class EstudianteVo {
         this.nacimiento = nacimiento;
     }
 
-    public String getPrograma() {
-        return programa;
+    public String getCorreoInst() {
+        return CorreoInst;
     }
 
-    public void setPrograma(String programa) {
-        this.programa = programa;
+    public void setCorreoInst(String CorreoInst) {
+        this.CorreoInst = CorreoInst;
+    }
+
+    public String getCorreoPersonal() {
+        return correoPersonal;
+    }
+
+    public void setCorreoPersonal(String correoPersonal) {
+        this.correoPersonal = correoPersonal;
     }
 
     public long getCelular() {
@@ -67,12 +78,22 @@ public class EstudianteVo {
         this.celular = celular;
     }
 
-    public String getCorreoInst() {
-        return CorreoInst;
+    public long getFijo() {
+        return fijo;
     }
 
-    public void setCorreoInst(String CorreoInst) {
-        this.CorreoInst = CorreoInst;
+    public void setFijo(long fijo) {
+        this.fijo = fijo;
     }
+
+    public String getPrograma() {
+        return programa;
+    }
+
+    public void setPrograma(String programa) {
+        this.programa = programa;
+    }
+    
 }
 
+   
