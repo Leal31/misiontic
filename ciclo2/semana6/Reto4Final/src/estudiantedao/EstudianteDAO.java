@@ -10,6 +10,7 @@ import java.util.List;
 import modelovo.EstudianteVo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
 
@@ -63,36 +64,199 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
         try {
             Conectar();
             PreparedStatement sentencia = Conexion.prepareStatement("delete estudiantes where CorreoInst = ?;");
+            sentencia.setString(1, CorreoInst);
+            sentencia.executeUpdate();
+            Desconectar();
+            return true;
         } catch (Exception e) {
+            System.out.println("El error es: " + e);
+            return false;
         }
     }
 
     @Override
     public List<EstudianteVo> consultar_todos() {
+        try {
+            List<EstudianteVo> estudiantes = new ArrayList();
+            Conectar();
+            PreparedStatement sentencia = Conexion.prepareStatement("select * from estudiantes");
+            ResultSet datos = sentencia.executeQuery();
+            while (datos.next()) {
+                EstudianteVo estudiante = new EstudianteVo();
+                estudiante.setNombres(datos.getString("Nombres"));
+                estudiante.setApellidos(datos.getString("Apellidos"));
+                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setCorreoInst(datos.getString("CorreoInst"));
+                estudiante.setCorreoPersonal(datos.getString("correopersonal"));
+                estudiante.setCelular(datos.getLong("Celular"));
+                estudiante.setFijo(datos.getLong("Fijo"));
+                estudiante.setPrograma(datos.getString("Programa"));
+                estudiantes.add(estudiante);
+
+            }
+            Desconectar();
+            return estudiantes;
+        } catch (Exception e) {
+            System.out.println("El error es: " + e);
+            return null;
+        }
     }
 
     @Override
     public EstudianteVo consultarPorCorreo(String CorreoInst) {
+        try {
+            Conectar();
+            PreparedStatement sentencia = Conexion.prepareStatement("select * from estudiantes where CorreoInst = ?");
+            sentencia.setString(1, CorreoInst);
+            ResultSet datos = sentencia.executeQuery();
+            EstudianteVo estudiante = new EstudianteVo();
+
+            if (datos.next()) {
+                estudiante.setNombres(datos.getString("Nombres"));
+                estudiante.setApellidos(datos.getString("Apellidos"));
+                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setCorreoInst(datos.getString("CorreoInst"));
+                estudiante.setCorreoPersonal(datos.getString("correopersonal"));
+                estudiante.setCelular(datos.getLong("Celular"));
+                estudiante.setFijo(datos.getLong("Fijo"));
+                estudiante.setPrograma(datos.getString("Programa"));
+                sentencia.executeQuery();
+
+            }
+            Desconectar();
+            return estudiante;
+        } catch (Exception e) {
+            System.out.println("El error es: " + e);
+            return null;
+        }
     }
 
     @Override
     public List<EstudianteVo> consultarPorApellido(String Apellido) {
+        try {
+            Conectar();
+            List<EstudianteVo> estudiantes = new ArrayList();
+            PreparedStatement sentencia = Conexion.prepareStatement("select * from estudiantes where apellido = ?");
+            sentencia.setString(1, Apellido);
+            ResultSet datos = sentencia.executeQuery();
+            if (datos.next()) {
+                EstudianteVo estudiante = new EstudianteVo();
+                estudiante.setNombres(datos.getString("Nombres"));
+                estudiante.setApellidos(datos.getString("Apellidos"));
+                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setCorreoInst(datos.getString("CorreoInst"));
+                estudiante.setCorreoPersonal(datos.getString("correopersonal"));
+                estudiante.setCelular(datos.getLong("Celular"));
+                estudiante.setFijo(datos.getLong("Fijo"));
+                estudiante.setPrograma(datos.getString("Programa"));
+                estudiantes.add(estudiante);
+
+            }
+            Desconectar();
+            return estudiantes;
+        } catch (Exception e) {
+            System.out.println("El error es: " + e);
+            return null;
+        }
     }
 
     @Override
     public List<EstudianteVo> consultarPorPrograma(String Programa) {
+        try {
+            List<EstudianteVo> estudiantes = new ArrayList();
+            PreparedStatement sentencia = Conexion.prepareStatement("select nombre, apellido from estudiantes where programa = ?");
+            sentencia.setString(1, Programa);
+            ResultSet datos = sentencia.executeQuery();
+            while (datos.next()) {
+                EstudianteVo estudiante = new EstudianteVo();
+                estudiante.setNombres(datos.getString("Nombres"));
+                estudiante.setApellidos(datos.getString("Apellidos"));
+                estudiantes.add(estudiante);
+            }
+            Desconectar();
+            return estudiantes;
+        } catch (Exception e) {
+            System.out.println("El error es: 0 " + e);
+            return null;
+        }
     }
 
     @Override
     public int consultarCantidadEstudiante(String Programa) {
+        try {
+            Conectar();
+            PreparedStatement sentencia = Conexion.prepareStatement("select count(nombre) from estudiantes where programa = ?");
+            ResultSet datos = sentencia.executeQuery();
+            if (datos.next()) {
+                int resultado = datos.getInt(1);
+                Desconectar();
+                return resultado;
+            } else {
+                Desconectar();
+                return -1;
+            }
+        } catch (Exception e) {
+            System.out.println("El error es: " + e);
+            return -1;
+        }
     }
 
     @Override
     public List<EstudianteVo> consultarPorFecha(String Nacimiento) {
+        try {
+            List<EstudianteVo> estudiantes = new ArrayList();
+            Conectar();
+            PreparedStatement sentencia = Conexion.prepareStatement("select * from estudiantes where nacimiento = ?");
+            sentencia.setString(1, Nacimiento);
+            ResultSet datos = sentencia.executeQuery();
+            while (datos.next()) {
+                EstudianteVo estudiante = new EstudianteVo();
+                estudiante.setNombres(datos.getString("Nombres"));
+                estudiante.setApellidos(datos.getString("Apellidos"));
+                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setCorreoInst(datos.getString("CorreoInst"));
+                estudiante.setCorreoPersonal(datos.getString("correopersonal"));
+                estudiante.setCelular(datos.getLong("Celular"));
+                estudiante.setFijo(datos.getLong("Fijo"));
+                estudiante.setPrograma(datos.getString("Programa"));
+                estudiantes.add(estudiante);
+                
+            }
+            Desconectar();
+            return estudiantes;
+        } catch (Exception e) {
+            System.out.println("El error es: " + e);
+            return null;
+        }
     }
 
     @Override
-    public EstudianteVo consultarPorCelular(long Celular) {
+    public List<EstudianteVo> consultarPorCelular(long Celular) {
+        try {
+            List<EstudianteVo> estudiantes = new ArrayList();
+            Conectar();
+            PreparedStatement sentencia = Conexion.prepareStatement("select * from estudiantes where celular = ?");
+            sentencia.setLong(1, Celular);
+            ResultSet datos = sentencia.executeQuery();
+            while (datos.next()) {
+                EstudianteVo estudiante = new EstudianteVo();
+                estudiante.setNombres(datos.getString("Nombres"));
+                estudiante.setApellidos(datos.getString("Apellidos"));
+                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setCorreoInst(datos.getString("CorreoInst"));
+                estudiante.setCorreoPersonal(datos.getString("correopersonal"));
+                estudiante.setCelular(datos.getLong("Celular"));
+                estudiante.setFijo(datos.getLong("Fijo"));
+                estudiante.setPrograma(datos.getString("Programa"));
+                estudiantes.add(estudiante);
+                
+            }
+            Desconectar();
+            return estudiantes;
+        } catch (Exception e) {
+            System.out.println("El error es: " + e);
+            return null;
+        }
     }
     
 }

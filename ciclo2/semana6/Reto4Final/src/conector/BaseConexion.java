@@ -11,7 +11,7 @@ public class BaseConexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("driver Cargado");
-            Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/universidad?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8", "root", "root");
+            Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/universidad1?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8", "root", "root");
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }

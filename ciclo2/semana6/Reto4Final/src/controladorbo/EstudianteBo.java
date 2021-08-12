@@ -5,10 +5,57 @@
  */
 package controladorbo;
 
+import estudiantedao.EstudianteDAO;
+import modelovo.EstudianteVo;
+
 /**
  *
  * @author leale
  */
 public class EstudianteBo {
+    private EstudianteDAO edao;
     
+    public EstudianteBo() {
+        edao = new EstudianteDAO();
+    }
+    
+    public void agregarEstudiante(EstudianteVo Estudiante) {
+        edao.insertarEstudiante(Estudiante);
+    }
+    
+    public void actualizarEstudiante(EstudianteVo Estudiante) {
+        edao.actualizarEstudiante(Estudiante);
+    }
+    
+    public void eliminarEstudiante(String CorreoInst) {
+        edao.eliminarEstudiante(CorreoInst);
+    }
+    
+    public void consultarEstudiantes() {
+        edao.consultar_todos();
+    }
+    
+    public void consultarCorreo(String CorreoInst) {
+        edao.consultarPorCorreo(CorreoInst);
+    }
+    
+    public void consultarApellido(String Apellido) {
+        edao.consultarPorApellido(Apellido);
+    }
+    
+    public void consultarPrograma (String Programa) {
+        edao.consultarPorPrograma(Programa);
+    }
+    
+    public void cantidadEstudiante(String Programa) {
+        edao.consultarCantidadEstudiante(Programa);
+    }
+    
+    public void consultarFecha(String Nacimiento) {
+        edao.consultarPorFecha(Nacimiento);
+    }
+    
+    public void consultarCelular(long Celular) {
+        edao.consultarPorCelular(Celular);
+    }
 }

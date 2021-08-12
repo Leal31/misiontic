@@ -22,6 +22,6 @@ public interface IEstudianteDAO {
     public List<EstudianteVo> consultarPorPrograma(String Programa);
     public int consultarCantidadEstudiante(String Programa);
     public List<EstudianteVo> consultarPorFecha(String Nacimiento);
-    public EstudianteVo consultarPorCelular(long Celular);
+    public List<EstudianteVo> consultarPorCelular(long Celular);
     
 }
