@@ -36,7 +36,7 @@ public class Vista {
             opcion = Integer.parseInt(leer.readLine());
             
             switch (opcion) {
-                case 1:
+                case 1: // Ingresar un estudiante
                     try {
                         EstudianteBo añadir = new EstudianteBo();
                         EstudianteVo estudiante = new EstudianteVo();
@@ -62,7 +62,7 @@ public class Vista {
                         System.out.println("El error es: " + e);
                 }    
                     break;
-                case 2:
+                case 2: // Modificar un estudiante
                     try {
                         EstudianteBo actualizar = new EstudianteBo();
                         EstudianteVo estudiante = new EstudianteVo();
@@ -88,21 +88,82 @@ public class Vista {
                         System.out.println("El error es: " + e);
                 }
                     break;
-                case 3:
+                case 3: // Eliminar un estudiante
+                    try {
+                        EstudianteBo eliminar = new EstudianteBo();
+                        System.out.println("Ingrese el correo de la persona que desea eliminar: ");
+                        String correo = leer.readLine();
+                        eliminar.eliminarEstudiante(correo);
+                        System.out.println("El estudiante fue eliminado satisfactoriamente");
+                    } catch (Exception e) {
+                        System.out.println("El error es: " + e);
+                    }
                     break;
-                case 4:
+                case 4: // Mostrar todos los estudiantes
+                    EstudianteBo mostrar = new EstudianteBo();
+                    mostrar.consultarEstudiantes();
                     break;
-                case 5:
+                case 5: // Consultar un estudiante por su correo institucional
+                    try {
+                        EstudianteBo consultarCorreo = new EstudianteBo();
+                        System.out.println("Ingrese el correo del estudiante: ");
+                        String correo = leer.readLine();
+                        consultarCorreo.consultarCorreo(correo);
+                } catch (Exception e) {
+                        System.out.println("El error es: " + e);
+                }
                     break;
-                case 6:
+                case 6: // Consultar un estudiante por su apellido
+                    try {
+                        EstudianteBo consultarApellido = new EstudianteBo();
+                        System.out.println("Ingrese el apellido de los estudiantes: ");
+                        String Apellido = leer.readLine();
+                        consultarApellido.consultarApellido(Apellido);
+                } catch (Exception e) {
+                        System.out.println("El error es: ");
+                }
                     break;
-                case 7:
+                case 7: // Consultar un estudiante por su programa academico
+                    try {
+                        EstudianteBo consultarPrograma = new EstudianteBo();
+                        System.out.println("Ingrese el programa de los estudiantes: ");
+                        String Programa = leer.readLine();
+                        consultarPrograma.consultarPrograma(Programa);
+                } catch (Exception e) {
+                        System.out.println("El error es: " + e);
+                }
                     break;
-                case 8:
+                case 8: // Consultar cantidad de estudiantes
+                    try {
+                        EstudianteBo cantidad = new EstudianteBo();
+                        System.out.println("Que programa quiere ver cuantos hay");
+                        String Programa = leer.readLine();
+                        cantidad.cantidadEstudiante(Programa);
+                } catch (Exception e) {
+                        System.out.println("El error es: " + e);
+                }
                     break;
-                case 9:
+                case 9: // Consultar un estudiante por su fecha de nacimiento
+                    try {
+                        EstudianteBo consultarNacimiento = new EstudianteBo();
+                        System.out.println("Ingrese La fecha de nacimiento del estudiante: ");
+                        String Nacimiento = leer.readLine();
+                        consultarNacimiento.consultarFecha(Nacimiento);
+                } catch (Exception e) {
+                        System.out.println("El error es: " + e);
+                }
                     break;
-                case 10:
+                case 10: // Consultar un estudiante por su celular
+                    try {
+                        EstudianteBo consultarCelular = new EstudianteBo();
+                        System.out.println("Ingrese el celular de los estudiantes: ");
+                        long celular = Long.parseLong(leer.readLine());
+                        consultarCelular.consultarCelular(celular);
+                } catch (Exception e) {
+                }
+                    break;
+                case 11:
+                    System.exit(0);
                     break;
                 
                 default:

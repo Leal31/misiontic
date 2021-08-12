@@ -18,7 +18,7 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
     public boolean insertarEstudiante(EstudianteVo Estudiante) {
         try {
             Conectar();
-            PreparedStatement sentencia = Conexion.prepareStatement("insert into estudiantes(nombre, apellido, nacimiento, CorreoInst, correopersonal, celular, fijo, programa) values (?, ?, ?, ?, ?, ?, ?, ?);");
+            PreparedStatement sentencia = Conexion.prepareStatement("insert into estudiantes(nombre, apellido, nacimiento, CorreoInst, correopersonal, celular, fijo, programa) values (?, ?, ?, ?, ?, ?, ?, ?)");
             sentencia.setString(1, Estudiante.getNombres());
             sentencia.setString(2, Estudiante.getApellidos());
             sentencia.setString(3, Estudiante.getNacimiento());
@@ -41,7 +41,7 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
     public boolean actualizarEstudiante(EstudianteVo Estudiante) {
         try {
             Conectar();
-            PreparedStatement sentencia = Conexion.prepareStatement("update estudiantes set nombre = ?, apellido = ?, nacimiento = ?, CorreoInst = ?, correopersonal = ?, celular = ?, fijo = ?, programa = ?;");
+            PreparedStatement sentencia = Conexion.prepareStatement("update estudiantes set nombre = ?, apellido = ?, nacimiento = ?, CorreoInst = ?, correopersonal = ?, celular = ?, fijo = ?, programa = ?");
             sentencia.setString(1, Estudiante.getNombres());
             sentencia.setString(2, Estudiante.getApellidos());
             sentencia.setString(3, Estudiante.getNacimiento());
@@ -63,7 +63,7 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
     public boolean eliminarEstudiante(String CorreoInst) {
         try {
             Conectar();
-            PreparedStatement sentencia = Conexion.prepareStatement("delete estudiantes where CorreoInst = ?;");
+            PreparedStatement sentencia = Conexion.prepareStatement("delete from estudiantes where CorreoInst = ?");
             sentencia.setString(1, CorreoInst);
             sentencia.executeUpdate();
             Desconectar();
@@ -83,14 +83,14 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
             ResultSet datos = sentencia.executeQuery();
             while (datos.next()) {
                 EstudianteVo estudiante = new EstudianteVo();
-                estudiante.setNombres(datos.getString("Nombres"));
-                estudiante.setApellidos(datos.getString("Apellidos"));
-                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setNombres(datos.getString("nombre"));
+                estudiante.setApellidos(datos.getString("apellido"));
+                estudiante.setNacimiento(datos.getString("nacimiento"));
                 estudiante.setCorreoInst(datos.getString("CorreoInst"));
                 estudiante.setCorreoPersonal(datos.getString("correopersonal"));
-                estudiante.setCelular(datos.getLong("Celular"));
-                estudiante.setFijo(datos.getLong("Fijo"));
-                estudiante.setPrograma(datos.getString("Programa"));
+                estudiante.setCelular(datos.getLong("celular"));
+                estudiante.setFijo(datos.getLong("fijo"));
+                estudiante.setPrograma(datos.getString("programa"));
                 estudiantes.add(estudiante);
 
             }
@@ -112,14 +112,14 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
             EstudianteVo estudiante = new EstudianteVo();
 
             if (datos.next()) {
-                estudiante.setNombres(datos.getString("Nombres"));
-                estudiante.setApellidos(datos.getString("Apellidos"));
-                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setNombres(datos.getString("nombre"));
+                estudiante.setApellidos(datos.getString("apellido"));
+                estudiante.setNacimiento(datos.getString("nacimiento"));
                 estudiante.setCorreoInst(datos.getString("CorreoInst"));
                 estudiante.setCorreoPersonal(datos.getString("correopersonal"));
-                estudiante.setCelular(datos.getLong("Celular"));
-                estudiante.setFijo(datos.getLong("Fijo"));
-                estudiante.setPrograma(datos.getString("Programa"));
+                estudiante.setCelular(datos.getLong("celular"));
+                estudiante.setFijo(datos.getLong("fijo"));
+                estudiante.setPrograma(datos.getString("programa"));
                 sentencia.executeQuery();
 
             }
@@ -141,14 +141,14 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
             ResultSet datos = sentencia.executeQuery();
             if (datos.next()) {
                 EstudianteVo estudiante = new EstudianteVo();
-                estudiante.setNombres(datos.getString("Nombres"));
-                estudiante.setApellidos(datos.getString("Apellidos"));
-                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setNombres(datos.getString("nombre"));
+                estudiante.setApellidos(datos.getString("apellido"));
+                estudiante.setNacimiento(datos.getString("nacimiento"));
                 estudiante.setCorreoInst(datos.getString("CorreoInst"));
                 estudiante.setCorreoPersonal(datos.getString("correopersonal"));
-                estudiante.setCelular(datos.getLong("Celular"));
-                estudiante.setFijo(datos.getLong("Fijo"));
-                estudiante.setPrograma(datos.getString("Programa"));
+                estudiante.setCelular(datos.getLong("celular"));
+                estudiante.setFijo(datos.getLong("fijo"));
+                estudiante.setPrograma(datos.getString("programa"));
                 estudiantes.add(estudiante);
 
             }
@@ -169,8 +169,8 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
             ResultSet datos = sentencia.executeQuery();
             while (datos.next()) {
                 EstudianteVo estudiante = new EstudianteVo();
-                estudiante.setNombres(datos.getString("Nombres"));
-                estudiante.setApellidos(datos.getString("Apellidos"));
+                estudiante.setNombres(datos.getString("nombre"));
+                estudiante.setApellidos(datos.getString("apellido"));
                 estudiantes.add(estudiante);
             }
             Desconectar();
@@ -211,14 +211,14 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
             ResultSet datos = sentencia.executeQuery();
             while (datos.next()) {
                 EstudianteVo estudiante = new EstudianteVo();
-                estudiante.setNombres(datos.getString("Nombres"));
-                estudiante.setApellidos(datos.getString("Apellidos"));
-                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setNombres(datos.getString("nombre"));
+                estudiante.setApellidos(datos.getString("apellido"));
+                estudiante.setNacimiento(datos.getString("nacimiento"));
                 estudiante.setCorreoInst(datos.getString("CorreoInst"));
                 estudiante.setCorreoPersonal(datos.getString("correopersonal"));
-                estudiante.setCelular(datos.getLong("Celular"));
-                estudiante.setFijo(datos.getLong("Fijo"));
-                estudiante.setPrograma(datos.getString("Programa"));
+                estudiante.setCelular(datos.getLong("celular"));
+                estudiante.setFijo(datos.getLong("fijo"));
+                estudiante.setPrograma(datos.getString("programa"));
                 estudiantes.add(estudiante);
                 
             }
@@ -240,14 +240,14 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
             ResultSet datos = sentencia.executeQuery();
             while (datos.next()) {
                 EstudianteVo estudiante = new EstudianteVo();
-                estudiante.setNombres(datos.getString("Nombres"));
-                estudiante.setApellidos(datos.getString("Apellidos"));
-                estudiante.setNacimiento(datos.getString("Nacimiento"));
+                estudiante.setNombres(datos.getString("nombre"));
+                estudiante.setApellidos(datos.getString("apellido"));
+                estudiante.setNacimiento(datos.getString("nacimiento"));
                 estudiante.setCorreoInst(datos.getString("CorreoInst"));
                 estudiante.setCorreoPersonal(datos.getString("correopersonal"));
-                estudiante.setCelular(datos.getLong("Celular"));
-                estudiante.setFijo(datos.getLong("Fijo"));
-                estudiante.setPrograma(datos.getString("Programa"));
+                estudiante.setCelular(datos.getLong("celular"));
+                estudiante.setFijo(datos.getLong("fijo"));
+                estudiante.setPrograma(datos.getString("programa"));
                 estudiantes.add(estudiante);
                 
             }
