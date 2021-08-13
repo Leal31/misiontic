@@ -6,6 +6,8 @@
 package controladorbo;
 
 import estudiantedao.EstudianteDAO;
+import java.util.ArrayList;
+import java.util.List;
 import modelovo.EstudianteVo;
 
 /**
@@ -31,8 +33,8 @@ public class EstudianteBo {
         edao.eliminarEstudiante(CorreoInst);
     }
     
-    public void consultarEstudiantes() {
-        edao.consultar_todos();
+    public List<EstudianteVo> consultarEstudiantes() {
+        return edao.consultar_todos();
     }
     
     public void consultarCorreo(String CorreoInst) {

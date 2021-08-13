@@ -101,7 +101,17 @@ public class Vista {
                     break;
                 case 4: // Mostrar todos los estudiantes
                     EstudianteBo mostrar = new EstudianteBo();
-                    mostrar.consultarEstudiantes();
+                    for (EstudianteVo Estudiante : mostrar.consultarEstudiantes()) {
+                        System.out.println("Nombres: " + Estudiante.getNombres());
+                        System.out.println("Apellidos: " +Estudiante.getApellidos());
+                        System.out.println("Fecha de nacimiento: " + Estudiante.getNacimiento());
+                        System.out.println("Correo institucional: " + Estudiante.getCorreoInst());
+                        System.out.println(Estudiante.getCorreoPersonal());
+                        System.out.println(Estudiante.getCelular());
+                        System.out.println(Estudiante.getFijo());
+                        System.out.println(Estudiante.getPrograma());
+
+                    }
                     break;
                 case 5: // Consultar un estudiante por su correo institucional
                     try {
