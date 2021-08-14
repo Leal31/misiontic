@@ -20,7 +20,7 @@ public class Vista {
         BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
         int opcion = 1;
         
-        while (opcion >= 1 && opcion <= 10) {
+        while (opcion >= 1 && opcion <= 11) {
             System.out.println("Instituto la floresta");
             System.out.println("1. Ingresar estudiante");
             System.out.println("2. Actualizar estudiante");
@@ -32,6 +32,7 @@ public class Vista {
             System.out.println("8. Consultar la cantidad de estudiantes");
             System.out.println("9. Consultar Estudiantes por fecha de nacimiento");
             System.out.println("10. Consultar estudiantes por Celular");
+            System.out.println("11. Salir");
             System.out.println("Ingresa una opcion");
             opcion = Integer.parseInt(leer.readLine());
             
@@ -106,11 +107,11 @@ public class Vista {
                         System.out.println("Apellidos: " +Estudiante.getApellidos());
                         System.out.println("Fecha de nacimiento: " + Estudiante.getNacimiento());
                         System.out.println("Correo institucional: " + Estudiante.getCorreoInst());
-                        System.out.println(Estudiante.getCorreoPersonal());
-                        System.out.println(Estudiante.getCelular());
-                        System.out.println(Estudiante.getFijo());
-                        System.out.println(Estudiante.getPrograma());
-
+                        System.out.println("Correo Personal: " + Estudiante.getCorreoPersonal());
+                        System.out.println("Celular: " + Estudiante.getCelular());
+                        System.out.println("Fijo: " + Estudiante.getFijo());
+                        System.out.println("Programa Academico: " + Estudiante.getPrograma());
+                        System.out.println("******************************");
                     }
                     break;
                 case 5: // Consultar un estudiante por su correo institucional
@@ -118,7 +119,16 @@ public class Vista {
                         EstudianteBo consultarCorreo = new EstudianteBo();
                         System.out.println("Ingrese el correo del estudiante: ");
                         String correo = leer.readLine();
-                        consultarCorreo.consultarCorreo(correo);
+                        EstudianteVo Estudiante = consultarCorreo.consultarCorreo(correo);
+                        
+                        System.out.println("Nombres: " + Estudiante.getNombres());
+                        System.out.println("Apellidos: " +Estudiante.getApellidos());
+                        System.out.println("Fecha de nacimiento: " + Estudiante.getNacimiento());
+                        System.out.println("Correo institucional: " + Estudiante.getCorreoInst());
+                        System.out.println("Correo Personal: " + Estudiante.getCorreoPersonal());
+                        System.out.println("Celular: " + Estudiante.getCelular());
+                        System.out.println("Fijo: " + Estudiante.getFijo());
+                        System.out.println("Programa Academico: " + Estudiante.getPrograma());
                 } catch (Exception e) {
                         System.out.println("El error es: " + e);
                 }
@@ -128,17 +138,30 @@ public class Vista {
                         EstudianteBo consultarApellido = new EstudianteBo();
                         System.out.println("Ingrese el apellido de los estudiantes: ");
                         String Apellido = leer.readLine();
-                        consultarApellido.consultarApellido(Apellido);
+                        for (EstudianteVo Estudiante : consultarApellido.consultarApellido(Apellido)) {
+                            System.out.println("Nombres: " + Estudiante.getNombres());
+                            System.out.println("Apellidos: " +Estudiante.getApellidos());
+                            System.out.println("Fecha de nacimiento: " + Estudiante.getNacimiento());
+                            System.out.println("Correo institucional: " + Estudiante.getCorreoInst());
+                            System.out.println("Correo Personal: " + Estudiante.getCorreoPersonal());
+                            System.out.println("Celular: " + Estudiante.getCelular());
+                            System.out.println("Fijo: " + Estudiante.getFijo());
+                            System.out.println("Programa Academico: " + Estudiante.getPrograma());
+                        }
                 } catch (Exception e) {
                         System.out.println("El error es: ");
                 }
                     break;
                 case 7: // Consultar un estudiante por su programa academico
                     try {
-                        EstudianteBo consultarPrograma = new EstudianteBo();
+                        EstudianteBo consultarporPrograma = new EstudianteBo();
                         System.out.println("Ingrese el programa de los estudiantes: ");
                         String Programa = leer.readLine();
-                        consultarPrograma.consultarPrograma(Programa);
+                        for (EstudianteVo Estudiante : consultarporPrograma.consultarPrograma(Programa)) {
+                            System.out.println("Nombres: " + Estudiante.getNombres());
+                            System.out.println("Apellidos: " + Estudiante.getApellidos());
+                            
+                        }
                 } catch (Exception e) {
                         System.out.println("El error es: " + e);
                 }
@@ -148,7 +171,8 @@ public class Vista {
                         EstudianteBo cantidad = new EstudianteBo();
                         System.out.println("Que programa quiere ver cuantos hay");
                         String Programa = leer.readLine();
-                        cantidad.cantidadEstudiante(Programa);
+                        System.out.println("La cantidad de estudiantes son: " + cantidad.cantidadEstudiante(Programa));
+
                 } catch (Exception e) {
                         System.out.println("El error es: " + e);
                 }
@@ -158,7 +182,17 @@ public class Vista {
                         EstudianteBo consultarNacimiento = new EstudianteBo();
                         System.out.println("Ingrese La fecha de nacimiento del estudiante: ");
                         String Nacimiento = leer.readLine();
-                        consultarNacimiento.consultarFecha(Nacimiento);
+                        for (EstudianteVo Estudiante : consultarNacimiento.consultarFecha(Nacimiento)) {
+                            System.out.println("Nombres: " + Estudiante.getNombres());
+                            System.out.println("Apellidos: " +Estudiante.getApellidos());
+                            System.out.println("Fecha de nacimiento: " + Estudiante.getNacimiento());
+                            System.out.println("Correo institucional: " + Estudiante.getCorreoInst());
+                            System.out.println("Correo Personal: " + Estudiante.getCorreoPersonal());
+                            System.out.println("Celular: " + Estudiante.getCelular());
+                            System.out.println("Fijo: " + Estudiante.getFijo());
+                            System.out.println("Programa Academico: " + Estudiante.getPrograma());
+                            System.out.println("******************************");
+                        }
                 } catch (Exception e) {
                         System.out.println("El error es: " + e);
                 }
@@ -168,8 +202,19 @@ public class Vista {
                         EstudianteBo consultarCelular = new EstudianteBo();
                         System.out.println("Ingrese el celular de los estudiantes: ");
                         long celular = Long.parseLong(leer.readLine());
-                        consultarCelular.consultarCelular(celular);
+                        for (EstudianteVo Estudiante : consultarCelular.consultarCelular(celular)) {
+                            System.out.println("Nombres: " + Estudiante.getNombres());
+                            System.out.println("Apellidos: " +Estudiante.getApellidos());
+                            System.out.println("Fecha de nacimiento: " + Estudiante.getNacimiento());
+                            System.out.println("Correo institucional: " + Estudiante.getCorreoInst());
+                            System.out.println("Correo Personal: " + Estudiante.getCorreoPersonal());
+                            System.out.println("Celular: " + Estudiante.getCelular());
+                            System.out.println("Fijo: " + Estudiante.getFijo());
+                            System.out.println("Programa Academico: " + Estudiante.getPrograma());
+                            System.out.println("******************************");
+                        }
                 } catch (Exception e) {
+                        System.out.println("El error es: " + e);
                 }
                     break;
                 case 11:
@@ -177,6 +222,7 @@ public class Vista {
                     break;
                 
                 default:
+                    System.out.println("opcion no valida");
                     break;
                   
             }

@@ -37,27 +37,27 @@ public class EstudianteBo {
         return edao.consultar_todos();
     }
     
-    public void consultarCorreo(String CorreoInst) {
-        edao.consultarPorCorreo(CorreoInst);
+    public EstudianteVo consultarCorreo(String CorreoInst) {
+        return edao.consultarPorCorreo(CorreoInst);
     }
     
-    public void consultarApellido(String Apellido) {
-        edao.consultarPorApellido(Apellido);
+    public List<EstudianteVo> consultarApellido(String Apellido) {
+        return edao.consultarPorApellido(Apellido);
     }
     
-    public void consultarPrograma (String Programa) {
-        edao.consultarPorPrograma(Programa);
+    public List<EstudianteVo> consultarPrograma (String Programa) {
+        return edao.consultarPorPrograma(Programa);
     }
     
-    public void cantidadEstudiante(String Programa) {
-        edao.consultarCantidadEstudiante(Programa);
+    public int cantidadEstudiante(String Programa) {
+        return edao.consultarCantidadEstudiante(Programa);
     }
     
-    public void consultarFecha(String Nacimiento) {
-        edao.consultarPorFecha(Nacimiento);
+    public List<EstudianteVo> consultarFecha(String Nacimiento) {
+        return edao.consultarPorFecha(Nacimiento);
     }
     
-    public void consultarCelular(long Celular) {
-        edao.consultarPorCelular(Celular);
+    public List<EstudianteVo> consultarCelular(long Celular) {
+        return edao.consultarPorCelular(Celular);
     }
 }

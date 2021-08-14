@@ -164,6 +164,7 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
     public List<EstudianteVo> consultarPorPrograma(String Programa) {
         try {
             List<EstudianteVo> estudiantes = new ArrayList();
+            Conectar();
             PreparedStatement sentencia = Conexion.prepareStatement("select nombre, apellido from estudiantes where programa = ?");
             sentencia.setString(1, Programa);
             ResultSet datos = sentencia.executeQuery();
@@ -171,12 +172,13 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
                 EstudianteVo estudiante = new EstudianteVo();
                 estudiante.setNombres(datos.getString("nombre"));
                 estudiante.setApellidos(datos.getString("apellido"));
+                
                 estudiantes.add(estudiante);
             }
             Desconectar();
             return estudiantes;
         } catch (Exception e) {
-            System.out.println("El error es: 0 " + e);
+            System.out.println("El error es: " + e);
             return null;
         }
     }
@@ -186,6 +188,7 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
         try {
             Conectar();
             PreparedStatement sentencia = Conexion.prepareStatement("select count(nombre) from estudiantes where programa = ?");
+            sentencia.setString(1, Programa);
             ResultSet datos = sentencia.executeQuery();
             if (datos.next()) {
                 int resultado = datos.getInt(1);
