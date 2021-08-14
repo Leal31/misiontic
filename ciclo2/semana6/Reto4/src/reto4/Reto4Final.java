@@ -1,4 +1,4 @@
-package reto4final;
+package reto4;
 
 import java.io.IOException;
 import vista.Vista;
