@@ -41,15 +41,16 @@ public class EstudianteDAO extends BaseConexion implements IEstudianteDAO {
     public boolean actualizarEstudiante(EstudianteVo Estudiante) {
         try {
             Conectar();
-            PreparedStatement sentencia = Conexion.prepareStatement("update estudiantes set nombre = ?, apellido = ?, nacimiento = ?, CorreoInst = ?, correopersonal = ?, celular = ?, fijo = ?, programa = ?");
+            PreparedStatement sentencia = Conexion.prepareStatement("update estudiantes set nombre = ?, apellido = ?, nacimiento = ?, correopersonal = ?, celular = ?, fijo = ?, programa = ? where CorreoInst = ?");
             sentencia.setString(1, Estudiante.getNombres());
             sentencia.setString(2, Estudiante.getApellidos());
             sentencia.setString(3, Estudiante.getNacimiento());
-            sentencia.setString(4, Estudiante.getCorreoInst());
-            sentencia.setString(5, Estudiante.getCorreoPersonal());
-            sentencia.setLong(6, Estudiante.getCelular());
-            sentencia.setLong(7, Estudiante.getFijo());
-            sentencia.setString(8, Estudiante.getPrograma());
+            sentencia.setString(4, Estudiante.getCorreoPersonal());
+            sentencia.setLong(5, Estudiante.getCelular());
+            sentencia.setLong(6, Estudiante.getFijo());
+            sentencia.setString(7, Estudiante.getPrograma());
+            sentencia.setString(8, Estudiante.getCorreoInst());
+
             sentencia.executeUpdate();
             Desconectar();
             return true;
