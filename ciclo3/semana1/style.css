@@ -1,0 +1,37 @@
+h1 {
+  text-align:center;
+}
+body {
+  background-color:lightyellow;
+
+}
+
+table, tr, td {
+  background-color:lightgray;
+  align:center;
+  border:1px solid black;
+  margin-left:auto;
+  margin-right:auto;
+  border-color:black;
+  font-size:25px;
+  width:50%;
+  height:40px;
+}
+
+img {
+  width:100px;
+}
+
+div {
+  border:2px;
+  
+}
+
+#label {
+  background-color:lightblue;
+  border:1px;
+  width:50%;
+  text-align:center;
+  margin-right:auto;
+  margin-left:auto;
+} 
